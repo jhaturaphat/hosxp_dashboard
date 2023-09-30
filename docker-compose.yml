@@ -1,0 +1,37 @@
+version: '3'
+services:
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - ./prometheus_data:/prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+      - --storage.tsdb.path=/prometheus
+      - --storage.tsdb.retention=${PROMETHEUS_RETENTION:-24h}
+    restart: always
+    networks:
+      - dashboard-net
+    expose:
+      - 9090
+  node-exporter:
+    image: prom/node-exporter:latest
+    networks:
+      - dashboard-net
+    restart: always
+  grafana:
+    image: grafana/grafana:latest    
+    volumes:
+      - ./grafana_data:/var/lib/grafana      
+    depends_on:
+      - prometheus
+    ports:
+      - 3000:3000
+    restart: always
+    networks:
+      - dashboard-net
+
+
+networks:
+  dashboard-net:
+    driver: bridge
