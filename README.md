@@ -9,3 +9,8 @@
 
 <label>http://localhost:3000 หรือ http://<ip-server>:3000 </label><br>
 
+<label>Username: admin <br> Password:admin</label>
+<div>
+#เปลี่ยน IP Address สำหรับเชื่อมต่อฐานข้อมูล HOSXP  <br>
+<label>Home > Connections > Data sources > MySQL</label>
+</div>
