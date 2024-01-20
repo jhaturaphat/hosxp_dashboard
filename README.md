@@ -9,8 +9,13 @@
 
 <label>http://localhost:3000 หรือ http://<ip-server>:3000 </label><br>
 
-<label>Username: admin <br> Password:admin</label>
+<label>Username: admin <br> Password:123456</label>
 <div>
 #เปลี่ยน IP Address สำหรับเชื่อมต่อฐานข้อมูล HOSXP  <br>
 <label>Home > Connections > Data sources > MySQL</label>
+</div>
+<div>
+รีเซ็ตรหัสผ่าน <br>
+docker ps จากนั้นดูชื่อ คอนเทนเนอร์ ที่เป็น gafana <br>
+docker-compose exec -it [container name ชื่อคอนเทนเนอร์] grafana cli admin reset-admin-password [new password ระบุรหัสผ่านใหม่]
 </div>
